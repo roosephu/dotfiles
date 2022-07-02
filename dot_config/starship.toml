@@ -172,6 +172,7 @@ symbol = " "
 
 [shlvl]
 symbol = " "
+format = " [$symbol]($style)"
 disabled = false
 
 [swift]
