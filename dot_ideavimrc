@@ -1,0 +1,41 @@
+let mapleader=" "
+
+" plugin emulation
+set argtextobj
+set surround
+set commentary
+set easymotion
+
+set showmode
+set ideajoin
+set showcmd
+set hlsearch
+set visualbell
+set incsearch
+set smartcase
+set scroll
+set gdefault
+set scrolloff=3
+set highlightedyank
+set ideamarks
+
+set clipboard+=unnamed
+
+nnoremap <S-Left> :action EditorLeftWithSelection<CR>
+nnoremap <S-Right> :action EditorRightWithSelection<CR>
+nnoremap <S-Up> :action EditorUpWithSelection<CR>
+nnoremap <S-Down> :action EditorDownWithSelection<CR>
+
+inoremap <S-Left> <C-O>:action EditorLeftWithSelection<CR>
+inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
+inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
+inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
+
+map <C-l> :action EditorScrollToCenter<CR>
+
+" AceJump Hintchars
+" hjklasdfgyuiopqwertnmzxcvb
+
+" colors
+" Foreground FFCB6B
+" Background 263238

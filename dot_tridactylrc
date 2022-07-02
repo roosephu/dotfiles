@@ -1,0 +1,22 @@
+" set hintchars 5647382910
+" set hintfiltermode vimperator
+set hintfiltermode vimperator-reflow
+set hintnames numeric
+
+" colours --url https://raw.githubusercontent.com/bezmi/base16-tridactyl/master/base16-nord.css nord
+" colors nord2
+
+blacklistadd mail.google.com/mail
+unbindurl http://127.0.0.1:* x
+unbindurl http://127.0.0.1:* a
+unbindurl http://127.0.0.1:* b
+unbindurl http://127.0.0.1:* Z
+unbindurl http://127.0.0.1:* m
+
+set searchurls.linggle https://linggle.com/?q=%s
+set incsearch true
+
+bindurl wikiwand.com yy composite js document.location.href.replace("wikiwand.com/en","wikipedia.org/wiki") | clipboard yank
+bind yy clipboard yankcanon
+
+quickmark m https://mail.google.com/mail/u/0/#inbox
