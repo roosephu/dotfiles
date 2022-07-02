@@ -1,0 +1,97 @@
+# Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+ #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[[ -s /Users/roosephu/.autojump/etc/profile.d/autojump.sh ]] && source /Users/roosephu/.autojump/etc/profile.d/autojump.sh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source ~/antigen.zsh
+
+bindkey -v
+bindkey ' ' magic-space
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
+bindkey '^[d' delete-word
+
+# export FZF_COMPLETION_TRIGGER='?'
+export FZF_DEFAULT_COMMAND='fd --type file --color=always'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
+
+export DEFAULT_USER=$USER
+export P9K_IGNORE_VAR_WARNING=true
+# export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir_writable context dir vcs)
+# export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(anaconda status root_indicator time)
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle tmux
+antigen bundle iterm2
+antigen bundle fzf
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle skywind3000/z.lua
+# antigen bundle marlonrichert/zsh-autocomplete
+# antigen theme romkatv/powerlevel10k
+#
+
+antigen apply
+
+alias ls='exa'
+alias vim='nvim'
+alias e='vim'
+alias c='bat -p'
+alias connect='et -c "tmux -CC a || tmux -CC"'
+
+export PATH=$PATH:/Library/TeX/texbin
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+
+md2pdf () {
+   prefix="${1%.*}"
+   cp $prefix.md /tmp
+   pushd /tmp
+   pandoc $1 -o $prefix.tex --lua-filter ~/.pandoc/md.lua -s
+   pdflatex -shell-escape $prefix.tex
+   popd
+   cp /tmp/$prefix.pdf .
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# unlimited history size
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+setopt hist_ignore_space
+
+# remove duplicated items
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(chezmoi completion zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
