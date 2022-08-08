@@ -82,8 +82,8 @@ style = "cyan"
 symbol = "  "
 
 [conda]
-# symbol = " "
-symbol = " "
+symbol = " "
+# symbol = " "
 format = "[ $symbol($environment)](fg:$style)"
 style = "cyan"
 ignore_base = false
@@ -127,7 +127,7 @@ symbol = " "
 symbol = " "
 
 [julia]
-format = "[$symbol($version) ]($style)"
+format = " [$symbol($version)]($style)"
 symbol = " "
 
 [memory_usage]
@@ -140,7 +140,7 @@ symbol = " "
 symbol = " "
 
 [nodejs]
-format = "[$symbol($version )]($style)"
+format = "[ $symbol($version)]($style)"
 
 [package]
 symbol = " "
