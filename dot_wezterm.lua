@@ -13,21 +13,13 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'nord'
+config.color_scheme = 'Catppuccin Macchiato'
 config.font = wezterm.font('IosevkaTerm Nerd Font')
 config.font_size = 12
 config.line_height = 1.2
 
-config.ssh_domains = {
-    {
-        name = "v2",
-        remote_address = "v2",
-    },
-    {
-        name = "gce",
-        remote_address = "gce",
-    }
-}
+config.ssh_domains = wezterm.default_ssh_domains()
+table.insert(config.ssh_domains, {name = "vps", remote_address = "vps", username = "root"})
 
 config.keys = {
     {key="b", mods="CMD", action=wezterm.action{SendString="\x1bb"}},
@@ -35,7 +27,8 @@ config.keys = {
     {key="d", mods="CMD", action=wezterm.action{SendString="\x1bd"}},
 }
 
-config.default_prog = { '/opt/homebrew/bin/nu', '-l' }
+-- config.default_prog = { '/opt/homebrew/bin/nu', '-l' }
+-- config.default_prog = { '/opt/homebrew/bin/nu', '-l' }
 config.mouse_bindings = {
     -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
@@ -52,6 +45,10 @@ config.mouse_bindings = {
         action = wezterm.action.OpenLinkAtMouseCursor,
     },
 }
+
+config.window_background_opacity = .98
+config.enable_scroll_bar = true
+config.scrollback_lines = 1000000
 
 
 -- and finally, return the configuration to wezterm
