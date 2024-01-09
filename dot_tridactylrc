@@ -3,7 +3,7 @@
 set hintfiltermode vimperator-reflow
 set hintnames numeric
 
-" colours --url https://raw.githubusercontent.com/bezmi/base16-tridactyl/master/base16-nord.css nord
+colours --url https://raw.githubusercontent.com/bezmi/base16-tridactyl/master/base16-nord.css nord
 " colors nord2
 
 blacklistadd mail.google.com/mail
@@ -18,5 +18,8 @@ set incsearch true
 
 bindurl wikiwand.com yy composite js document.location.href.replace("wikiwand.com/en","wikipedia.org/wiki") | clipboard yank
 bind yy clipboard yankcanon
+bind d scrollpage 0.5
+bind e scrollpage -0.5
 
 quickmark m https://mail.google.com/mail/u/0/#inbox
+
