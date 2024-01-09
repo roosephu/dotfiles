@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 require('lazy').setup("plugins")
 require('nu').setup({use_lsp_features = false})
 
-vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme 'catppuccin-macchiato'
 
 -- vim.cmd [[ nmap s <Plug>(easymotion-s2) ]] 
 -- if vim.g.vscode then
