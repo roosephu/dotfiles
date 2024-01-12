@@ -34,9 +34,11 @@ require('lazy').setup("plugins")
 require('nu').setup({use_lsp_features = false})
 
 vim.cmd.colorscheme 'catppuccin-macchiato'
+vim.keymap.set({'n', 'x', 'o'}, 'L', 'g_', { noremap = true, silent = true })
+vim.keymap.set({'n', 'x', 'o'}, 'H', '_', { noremap = true, silent = true })
 
 -- vim.cmd [[ nmap s <Plug>(easymotion-s2) ]] 
--- if vim.g.vscode then
+--if vim.g.vscode then
 --     vim.keymap.set('x', '<C-/>', VSCodeCommentarygv)
 --     -- nmap <C-/> <Plug>VSCodeCommentaryLine
 -- end
