@@ -10,38 +10,6 @@ use aliases/git/git-aliases.nu *
 # source ~/.zoxide.nu
 # source ~/.local/share/atuin/init.nu
 
-# $env.NU_POWER_SCHEMA = [
-#     [
-#         {source: pwd,   color: '#353230'}
-#         {source: git,   color: '#504945'}
-#     ]
-#     [
-#         {source: proxy, color: 'dark_gray'}
-#         {source: host,  color: '#353230'}
-#         {source: kube,  color: '#504945'}
-#         {source: time,  color: '#666560'}
-#     ]
-# ]
-# use modules/prompt/powerline/power.nu
-#     use modules/prompt/powerline/power_git.nu
-#     use modules/prompt/powerline/power_kube.nu
-# power init
-
-# use modules/prompt/powerline/power.nu
-#     use modules/prompt/powerline/power_git.nu
-#     power inject 0 1 {source: git,   color: '#504945'}
-#     use modules/prompt/powerline/power_kube.nu
-#     power inject 1 2 {source: kube,  color: '#504945'} {
-#         context: cyan
-#     } {
-#         reverse: true
-#         separator: '@'
-#     }
-#     use modules/prompt/powerline/power_utils.nu
-#     power inject 0 1 {source: atuin, color: '#4C4B4A'}
-#     power set time null { style: compact }
-# power init
-
 $env.CONDA_NO_PROMPT = true
 # $env.LS_COLORS = (vivid generate catppuccin-macchiato | str trim)
 $env.EDITOR = nvim
