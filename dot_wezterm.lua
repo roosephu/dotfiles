@@ -27,8 +27,6 @@ config.keys = {
     {key="d", mods="CMD", action=wezterm.action{SendString="\x1bd"}},
 }
 
--- config.default_prog = { '/opt/homebrew/bin/nu', '-l' }
--- config.default_prog = { '/opt/homebrew/bin/nu', '-l' }
 config.mouse_bindings = {
     -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
@@ -46,7 +44,7 @@ config.mouse_bindings = {
     },
 }
 
-config.window_background_opacity = .98
+config.window_background_opacity = .95
 config.enable_scroll_bar = true
 config.scrollback_lines = 1000000
 

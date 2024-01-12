@@ -82,7 +82,8 @@ style = "cyan"
 symbol = "  "
 
 [conda]
-symbol = " "
+# symbol = " "
+symbol = "conda "
 # symbol = " "
 format = "[ $symbol($environment)](fg:$style)"
 style = "cyan"
@@ -95,6 +96,7 @@ symbol = " "
 format = "[:$read_only$path](fg:$style)"
 style = "blue"
 read_only = " "
+fish_style_pwd_dir_length = 3
 
 [docker_context]
 symbol = " "
@@ -134,6 +136,7 @@ symbol = " "
 symbol = " "
 
 [nim]
+format = "[ $symbol($version)](fg:$style)"
 symbol = " "
 
 [nix_shell]
@@ -157,7 +160,8 @@ symbol = " "
 [python]
 format = "[ $symbol($version)](fg:$style)"
 style = "cyan"
-symbol = " "
+#symbol = " "
+symbol = "py "
 
 [ruby]
 symbol = " "
@@ -165,7 +169,8 @@ symbol = " "
 [rust]
 format = "[ $symbol($version)](fg:$style)"
 style = "cyan"
-symbol = " "
+# symbol = " "
+symbol = "Rust "
 
 [scala]
 symbol = " "
@@ -178,7 +183,8 @@ disabled = false
 [swift]
 format = "[ $symbol($version)](fg:$style)"
 style = "cyan"
-symbol = "ﯣ "
+# symbol = "ﯣ "
+symbol = "Swift "
 
 [cmd_duration]
 # format = "[$duration]($style) "
@@ -190,9 +196,15 @@ style = "yellow"
 format = " $symbol "
 
 [hostname]
-format = "(\b@[$hostname]($style):)"
+format = "(@[$hostname]($style):)"
+style = "blue bold"
+ssh_only = false
 
 [username]
 format = "[$user]($style)"
 show_always = true
 style_user = "blue"
+
+[lua]
+format = "[ $symbol($version)](fg:$style)"
+symbol = "Lua "
