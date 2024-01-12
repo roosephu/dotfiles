@@ -1,4 +1,5 @@
 alias e = nvim
+alias c = cat
 
 use ~/.cache/starship/init.nu
 use themes/nu-themes/catppuccin-mocha.nu
