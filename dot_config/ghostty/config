@@ -1,0 +1,10 @@
+font-family = "Iosevka DRD"
+adjust-cell-height = 15%
+theme = GruvboxDark
+keybind = cmd+f=esc:f
+keybind = cmd+b=esc:b
+keybind = cmd+d=esc:d
+minimum-contrast = 3
+mouse-hide-while-typing = true
+background-opacity = 0.9
+background-blur-radius = 20
