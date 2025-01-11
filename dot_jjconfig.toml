@@ -1,0 +1,10 @@
+[ui]
+default-command = "log"
+paginate = "never"
+
+[user]
+email = "roosephu@gmail.com"
+name = "Yuping Luo"
+
+[merge-tools]
+program = "vscode"
