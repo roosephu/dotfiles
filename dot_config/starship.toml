@@ -1,102 +1,25 @@
-format = """
-$username\
-$hostname\
-$directory\
-$shlvl\
-$singularity\
-$kubernetes\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$docker_context\
-$nix_shell\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$env_var\
-$crystal\
-$custom\
-$sudo\
-$line_break\
-$jobs\
-$battery\
-$shell\
-$character"""
-right_format = """
-$status\
-$cmd_duration\
-$package\
-$conda\
-$cmake\
-$cobol\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$time
-"""
-
-add_newline = false
-
-[line_break]
-disabled = true
-
-[time]
-disabled = false
-format = "[ $time](fg:$style)"
-style = "cyan"
+[username]
+show_always = true
 
 [aws]
 symbol = "  "
 
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
 [conda]
-# symbol = " "
-symbol = "conda "
-# symbol = " "
-format = "[ $symbol($environment)](fg:$style)"
-style = "cyan"
+symbol = " "
 ignore_base = false
 
 [dart]
 symbol = " "
 
 [directory]
-format = "[:$read_only$path](fg:$style)"
-style = "blue"
-read_only = " "
-fish_style_pwd_dir_length = 3
+read_only = " 󰌾"
+truncation_length = 100
 
 [docker_context]
 symbol = " "
@@ -107,104 +30,120 @@ symbol = " "
 [elm]
 symbol = " "
 
+[fossil_branch]
+symbol = " "
+
 [git_branch]
 symbol = " "
-style = "yellow"
-format = "[ $symbol$branch](fg:$style)"
-# format = "[$symbol$branch]($style) "
-
-[git_status]
-format = "([ $conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind](fg:$style))"
-style = "yellow"
-deleted = "x"
-renamed = ">"
 
 [golang]
 symbol = " "
 
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
 [hg_branch]
 symbol = " "
+
+[hostname]
+ssh_only = false
+ssh_symbol = " "
 
 [java]
 symbol = " "
 
 [julia]
-format = " [$symbol($version)]($style)"
 symbol = " "
 
+[lua]
+symbol = " "
+
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
 
 [nim]
-format = "[ $symbol($version)](fg:$style)"
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
-symbol = " "
+symbol = " "
 
 [nodejs]
-format = "[ $symbol($version)]($style)"
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "�� "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "�� "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "�� "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
 
 [package]
-symbol = " "
-format = "[ $symbol($version)](fg:$style)"
-style = "cyan"
-# format = "[$symbol$version]($style) "
+symbol = "󰏗 "
 
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
+[pijul_channel]
+symbol = " "
 
 [python]
-format = "[ $symbol($version)](fg:$style)"
-style = "cyan"
-#symbol = " "
-symbol = "py "
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
 
 [ruby]
-symbol = " "
+symbol = " "
 
 [rust]
-format = "[ $symbol($version)](fg:$style)"
-style = "cyan"
-# symbol = " "
-symbol = "Rust "
+symbol = " "
 
 [scala]
 symbol = " "
 
-[shlvl]
-symbol = " "
-format = " [$symbol]($style)"
+[time]
 disabled = false
 
-[swift]
-format = "[ $symbol($version)](fg:$style)"
-style = "cyan"
-# symbol = "ﯣ "
-symbol = "Swift "
-
-[cmd_duration]
-# format = "[$duration]($style) "
-format = "[ 祥$duration](fg:$style)"
+[env_var]
+variable = "STARSHIP_SHELL"
 style = "yellow"
-
-
-[character]
-format = " $symbol "
-
-[hostname]
-format = "(@[$hostname]($style):)"
-style = "blue bold"
-ssh_only = false
-
-[username]
-format = "[$user]($style)"
-show_always = true
-style_user = "blue"
-
-[lua]
-format = "[ $symbol($version)](fg:$style)"
-symbol = "Lua "

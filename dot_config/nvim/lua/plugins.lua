@@ -5,6 +5,8 @@ return {
     'tpope/vim-surround',
     'tpope/vim-sensible',
     'vim-airline/vim-airline',
+    "ellisonleao/gruvbox.nvim",
+    'ojroques/vim-oscyank',
     -- 'easymotion/vim-easymotion',
     -- 'justinmk/vim-sneak'
     -- use 'valloric/youcompleteme'
@@ -40,7 +42,7 @@ return {
         }
     },
     {
-        "nvim-treesitter/nvim-treesitter", 
+        "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         opts = {
             ensure_installed = "all", -- { "c", "lua", "vim", "vimdoc", "query" },
@@ -48,7 +50,7 @@ return {
     },
 
     {
-        'LhKipp/nvim-nu', 
+        'LhKipp/nvim-nu',
         build = ':TSInstall nu',
         init = function()
             require('nu').setup({
@@ -56,6 +58,4 @@ return {
             })
         end
     },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
-

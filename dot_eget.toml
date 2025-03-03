@@ -1,0 +1,49 @@
+# curl https://zyedidia.github.io/eget.sh | sh
+
+[global]
+target = '~/.bin'
+upgrade_only = true
+
+["starship/starship"]
+asset_filters = ["gnu.tar.gz"]
+
+["wez/wezterm"]
+asset_filters = ["AppImage", "^.zsync"]
+
+["atuinsh/atuin"]
+asset_filters = ["gnu.tar.gz"]
+
+["sharkdp/vivid"]
+asset_filters = ["gnu"]
+
+["jgm/pandoc"]
+
+["ajeetdsouza/zoxide"]
+
+["eza-community/eza"]
+asset_filters = ["gnu.tar.gz"]
+
+["sharkdp/bat"]
+asset_filters = ["gnu.tar.gz"]
+
+["nushell/nushell"]
+asset_filters = ["gnu.tar.gz"]
+file = "nu"
+
+["sharkdp/fd"]
+asset_filters = ["gnu.tar.gz"]
+
+["BurntSushi/ripgrep"]
+
+["twpayne/chezmoi"]
+asset_filters = ["^musl", "^chezmoi_"]
+
+["bootandy/dust"]
+asset_filters = ["gnu.tar.gz"]
+
+['zyedidia/eget']
+
+["rclone/rclone"]
+asset_filters = [".zip"]
+
+["jj-vcs/jj"]

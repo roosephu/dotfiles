@@ -30,15 +30,25 @@ vim.api.nvim_create_autocmd({"FileType"}, {
     end
 })
 
+-- Highlight on yank
+local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+    command = "silent! lua vim.highlight.on_yank {timeout = 200}",
+    group = yankGrp,
+})
+
+
 require('lazy').setup("plugins")
-require('nu').setup({use_lsp_features = false})
 
-vim.cmd.colorscheme 'catppuccin-macchiato'
-vim.keymap.set({'n', 'x', 'o'}, 'L', 'g_', { noremap = true, silent = true })
-vim.keymap.set({'n', 'x', 'o'}, 'H', '_', { noremap = true, silent = true })
+vim.cmd.colorscheme('gruvbox')
 
--- vim.cmd [[ nmap s <Plug>(easymotion-s2) ]] 
---if vim.g.vscode then
+-- vim.cmd [[ nmap s <Plug>(easymotion-s2) ]]
+-- if vim.g.vscode then
 --     vim.keymap.set('x', '<C-/>', VSCodeCommentarygv)
 --     -- nmap <C-/> <Plug>VSCodeCommentaryLine
 -- end
+
+vim.keymap.set('o', 'L', '$')
+
+vim.keymap.set('n', 'y', '<Plug>OSCYankOperator')
+vim.keymap.set('v', 'y', '<Plug>OSCYankVisual')
